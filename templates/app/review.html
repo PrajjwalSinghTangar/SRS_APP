@@ -1,0 +1,42 @@
+{% extends "app/layout.html" %}
+{% load static %}
+{% block css %}
+<link href="{% static 'app/review.css' %}" rel="stylesheet">
+<script src="{% static 'app/review.js' %}" type="text/javascript"></script>
+{% endblock css %}
+
+{% block body %}
+    <div class="container" style="min-height:70vh;background-color:rgba(255, 255, 255, 0.500);">
+        <h2 class="heading" style="font-family:'Rubik Iso';font-size:40px;">
+            <div class="heading_sub">R</div>
+            <div class="heading_sub">e</div>
+            <div class="heading_sub">v</div>
+            <div class="heading_sub">i</div>
+            <div class="heading_sub">e</div>
+            <div class="heading_sub">w</div>
+        </h2>
+        <div style="text-align:center;">
+          <h6>Select a deck to review forgotten cards:</h6> <br>
+          {% for deck in decks %}
+            <a href="{% url 'review_deck' deck.id %}" style="background-color:blue;font-size:20px;padding:10px;">{{deck.group}}</a>
+          {% endfor %}
+         <h6 style="margin-top:20px;">OR</h6>
+          <div style="margin-top:20px;">
+            <form action="" id="id_table" onsubmit="return false">
+              <label for="deck">Choose a deck:</label>
+              <select id="id_deck" name="deck">
+                {% for deck in decks %}
+                  <option value="{{deck.id}}">{{deck.group}}</option>
+                {% endfor %}
+              </select>
+              <span>To</span>
+              <input id="id_submit" type="submit" value="Open Deck 🂠">
+            </form>
+          </div>
+          <div id="table">
+            
+          </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}

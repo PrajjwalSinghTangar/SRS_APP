@@ -1,0 +1,77 @@
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'app/reviewCards.css' %}" rel="stylesheet">
+
+{% endblock css %}
+
+{% block body %}
+
+<div>
+    {% if user.is_authenticated %}
+    
+    <div>
+        {% for cards in all_cards %}
+        <div class="super-container">
+            <h3 style="margin:20px"> All Posts </h3>
+            
+                <div class="card-container">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h1>{{cards.front}}</h1>
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>{{cards.back}}</h1>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="learn_button" style="display:flex;">
+                        <div>
+                            <form action="{% url "review_deck_update" cards.id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="text" id="getValues1" name="factor" value="1" style="display:none"/>
+                                <button style="background-color:red;color:white;" type="submit">Hard! Let's Review Tomorrow!</button>
+                            </form>
+                        </div>
+                        <div style="margin:0px 30px;">
+                            <form action="{% url "review_deck_update" cards.id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="text" id="getValues2" name="factor" value="2" style="display:none"/>
+                                <button style="background-color:blue;color:white;" type="submit">Okay! Review after 2 days!</button>
+                            </form>
+                        </div>
+                        <div>
+                            <form action="{% url "review_deck_update" cards.id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="text" id="getValues3" name="factor" value="4" style="display:none"/>
+                                <button style="background-color:green;color:white;" type="submit">Easy! Review after 4 days!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+        {% empty %}
+            <h1>All Done For Today!</h1>
+        {% endfor %}
+    </div>
+
+        <div class="nav-button" style="margin:20px;font-size:20px;width:max-content;padding:0.5px 1px;">
+            <div style="padding:10px 20px;">
+            {% if all_cards.has_next %}
+                <a href="?page={{ all_cards.next_page_number }}" style="border-style:groove;">next ↠ </a>
+            {% endif %}
+    
+            {% if all_cards.has_previous %}
+                <a href="?page={{ all_cards.previous_page_number }}" style="border-style:groove;"> ↞ previous</a>
+            {% endif %}
+            </div>
+        </div>
+    {% else %}
+        <h1>Please Login</h1>
+    {% endif %}
+</div>
+<script src="{% static 'app/reviewCards.js' %}" type="text/javascript"></script>
+{% endblock %}

@@ -1,0 +1,304 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}SRS_APP{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="{% static 'app/layout.css' %}" rel="stylesheet" />
+    <script
+      type="text/javascript"
+      src="{% static 'app/layout.js' %}"
+    ></script>
+    {% block css %}{% endblock css %}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="topnav" id="myTopnav">
+      <a href="{% url 'index'%}" class="active" style="font-family: 'Rubik Iso'"
+        >SRS_APP</a
+      >
+      {% if user.is_authenticated %}
+      <a href="{% url 'review' %}">Review Deck</a>
+      {% else %}
+      <a href=""></a>
+      {% endif %}
+      <div class="pixelme">
+        <svg
+          version="1.1"
+          id="Alo"
+          x="0px"
+          y="0px"
+          width="170px"
+          height="145px"
+          viewBox="0 0 200 200"
+        >
+          <polygon
+            id="Tempe"
+            class="st14"
+            points="74,85.7 74,92.4 80.7,92.4 80.7,85.7    "
+          />
+          <polygon
+            id="Cheveux_dessus"
+            class="st9"
+            points="67,72.7 67.3,65.1 71.5,63.2 72.9,57.3 79,56.9 80.4,51.8 86.9,51.5 86.8,45.8 
+                    87.6,44.4 93.7,38.4 147.9,38.4 148.4,46.5 96,47.2 95.1,54.3 88.2,54.3 88.3,60 81.6,59.7 81.6,66.8 74.9,66.9 74.8,73.3     "
+          />
+          <polygon
+            id="Peau"
+            class="st11"
+            points="67.2,166.3 74,166.3 74,119.8 60.5,119.8 60.5,112.5 53.8,112.5 53.8,99 60.5,99 
+                    60.5,92.3 80.7,92.3 80.7,72 87.4,72 87.4,65.4 94.2,65.4 94.2,58.6 161.4,58.6 161.4,146 154.7,146 154.7,159.5 147.9,159.5 
+                    147.9,166.2 141.2,166.2 141.2,194.4 67,194.4 80.7,179.8 74,179.8 74,173.1 67.2,173.1    "
+          />
+          <polyline
+            id="Barbe"
+            class="st8"
+            points="71.6,99.1 71.2,146.2 80.7,146.2 80.7,156 86.6,156.2 86.5,161.6 93.9,161.8 93.3,166.8 
+                    99.8,167.1 100,173.1 141.2,173.1 141.2,166.4 148,166.4 148,159.7 154.7,159.7 154.7,146.2 161.4,146.2 161.4,139.5 154.7,139.5 
+                    154.7,146.2 148,146.2 141.3,146.2 141.3,166.4 107.8,166.4 107.8,159.7 114.3,159.7 114.3,146.3 141.3,146.2 141.3,139.3 
+                    114.2,139.3 114.3,146.3 107.7,146.3 107.8,159.7 101,159.7 100.9,151.7 94.4,151 94.3,145.1 87.4,145.4 87.5,139.5 80.7,138.5 
+                    80.7,99 74,99.1     "
+          />
+          <polygon
+            id="Shirt"
+            class="st2"
+            points="13.4,200 13.4,193.3 20.2,193.3 20.2,186.9 26.9,186.9 26.9,179.8 40.3,179.8 40.3,173.1 
+                    74,173.1 74,179.8 80.7,179.8 80.7,186.5 87.4,186.5 87.4,193.3 114.3,193.3 114.3,186.5 121,186.5 121,173.1 154.7,173.1 
+                    154.7,179.8 161.4,179.8 161.4,186.5 168.1,186.5 168.1,193.3 174.9,193.3 174.9,200     "
+          />
+          <polygon
+            id="Chevelure"
+            class="st15"
+            points="74,146.2 53.8,146.2 53.8,139.5 60.5,139.5 60.5,119.3 67.3,119.3 67.3,92.4 
+                    60.5,92.4 60.5,65.5 67.3,65.5 67.3,52 74,52 74,45.3 80.7,45.3 80.7,38.6 87.4,38.6 87.4,31.9 100.9,31.9 100.9,25.1 114.3,25.1 
+                    114.3,31.9 147.9,31.9 147.9,38.6 154.7,38.6 154.7,45.3 161.4,45.3 161.4,58.8 168.1,58.8 168.1,72.2 161.4,72.2 161.4,58.8 
+                    154.7,58.8 154.7,45.3 147.9,45.3 147.9,38.6 94.1,38.6 94.1,45.3 87.3,45.3 87.3,52 80.8,52 80.8,58.8 74.1,58.8 74.1,65.5 
+                    67.3,65.5 67.3,92.4 74.1,92.4     "
+          />
+          <polygon
+            id="Cheveux_front"
+            class="st4"
+            points="67.3,92.4 67.3,72.2 74,72.2 74,65.5 80.7,65.5 80.7,58.8 87.3,58.8 87.3,52 
+                    94.2,52 94.2,45.3 154.7,45.3 154.7,52 94.2,52 94.2,58.8 87.4,58.8 87.4,65.5 80.7,65.5 80.7,72.3 74,72.2 74,92.4     "
+          />
+          <polygon
+            id="Ombre_cheveux"
+            class="st10"
+            points="154.7,58.8 154.7,52 94.1,52 94.1,58.8 87.4,58.8 87.4,65.5 80.7,65.5 
+                    80.7,72.1 87.4,72.1 87.4,65.5 94.2,65.5 94.1,58.8     "
+          />
+          <polygon
+            id="Cheveux_oreille"
+            class="st6"
+            points="80.7,72.2 74,72.2 74,85.7 80.7,85.7     "
+          />
+          <polygon
+            id="Lunettes"
+            class="st7"
+            points="74,92.4 74,99.1 100.9,99.1 100.9,105.8 127.8,105.8 127.8,99.1 141.2,99.1 
+                    141.2,105.8 154.7,105.8 154.7,99.1 161.4,99.1 161.4,92.4 154.7,92.4 154.7,85.7 141.2,85.7 141.2,92.5 127.8,92.5 127.8,85.8 
+                    100.9,85.8 100.9,92.5     "
+          />
+          <polygon
+            id="Oeil_gauche"
+            class="st12"
+            points="100.9,92.4 100.9,99.1 121,99.1 121,92.4    "
+          />
+          <polygon
+            id="Oeil_droit"
+            class="st12"
+            points="141.3,92.4 141.3,99.1 154.7,99.1 154.7,92.4     "
+          />
+          <polygon
+            id="Sourcil_gauche"
+            class="st8"
+            points="121.1,85.7 100.9,85.7 100.9,78.9 121,78.9    "
+          />
+          <polygon
+            id="Sourcil_droit"
+            class="st8"
+            points="161.4,92.4 154.7,92.4 154.7,85.7 141.2,85.7 141.2,79 154.7,79 154.7,85.7 
+                    161.4,85.7    "
+          />
+          <polygon
+            id="Nez"
+            class="st3"
+            points="141.2,112.6 134.5,112.6 134.5,119.3 121,119.3 121,126 141.2,126     "
+          />
+          <polygon
+            id="Poils_gauche"
+            class="st10"
+            points="80.7,132.8 80.7,139.5 87.4,139.5 87.4,146.3 94.2,146.3 94.2,152.9 100.9,152.9 
+                    101,159.7 107.8,159.7 107.8,153.1 101,152.9 101,146.2 94.2,146.3 94.2,139.6 87.4,139.5 87.4,132.8     "
+          />
+          <polygon
+            id="Poils_droite"
+            class="st10"
+            points="148,146.2 154.7,146.2 154.7,139.5 161.4,139.5 161.4,132.8 154.7,132.8 
+                    154.7,139.5 148,139.5     "
+          />
+          <rect
+            id="Bouche"
+            x="121"
+            y="153"
+            class="st3"
+            width="13.4"
+            height="6.7"
+          />
+          <polygon
+            id="Ombre_cou"
+            class="st5"
+            points="80.7,152.9 80.7,166.4 87.4,166.4 87.4,173.1 100.9,173.1 100.9,179.8 121,179.8 
+                    121,173.1 100.9,173.1 100.9,166.4 94.2,166.4 94.2,159.6 87.4,159.6 87.4,152.9     "
+          />
+          <rect
+            id="Pupille_gauche_gauche"
+            x="100.8"
+            y="92.4"
+            class="st13"
+            width="6.8"
+            height="6.7"
+          />
+          <rect
+            id="Pupille_gauche_droite"
+            x="114.3"
+            y="92.4"
+            class="st1"
+            width="6.8"
+            height="6.7"
+          />
+          <polygon
+            id="Pupille_droite_gauche"
+            class="st13"
+            points="141.4,92.3 141.4,99.1 148.2,99.1 148.2,92.4    "
+          />
+          <polygon
+            id="Pupille_droite_droite"
+            class="st1"
+            points="147.9,92.3 147.9,99.1 154.7,99.1 154.7,92.4     "
+          />
+        </svg>
+      </div>
+      {% if user.is_authenticated %}
+      <a href="{% url 'logout'%}">Logout</a>
+      {% else %}
+      <a href="{% url 'login'%}">Login</a>
+      <a href="{% url 'register'%}">Register</a>
+      {% endif %}
+
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    {% block body %}{% endblock body %}
+
+    <script>
+      var width;
+
+      // Selectors
+      var Pupille_g_d = document.getElementById("Pupille_gauche_droite");
+      var Pupille_g_g = document.getElementById("Pupille_gauche_gauche");
+      var Pupille_d_d = document.getElementById("Pupille_droite_droite");
+      var Pupille_d_g = document.getElementById("Pupille_droite_gauche");
+      var Cheveux = document.getElementById("Ombre_cheveux");
+      var Sourcil_g = document.getElementById("Sourcil_gauche");
+      var Sourcil_d = document.getElementById("Sourcil_droit");
+      var Nez = document.getElementById("Nez");
+      var Bouche = document.getElementById("Bouche");
+      var Peau = document.getElementById("Peau");
+      var Alo = document.getElementById("Alo");
+
+      var count = 0;
+
+      document.addEventListener("mousemove", function (event) {
+        mouse_position(event);
+      });
+
+      function mouse_position(e) {
+        var x = e.clientX; //Mouse position detection
+
+        width = document.body.clientWidth;
+
+        //If the mouse cursor is at the left side of the window
+        if (x <= width / 2) {
+          //Display left look
+          Pupille_g_d.style.display = "none";
+          Pupille_g_g.style.display = "block";
+          Pupille_d_d.style.display = "none";
+          Pupille_d_g.style.display = "block";
+        }
+        //Display right look
+        else {
+          Pupille_g_d.style.display = "block";
+          Pupille_g_g.style.display = "none";
+          Pupille_d_d.style.display = "block";
+          Pupille_d_g.style.display = "none";
+        }
+      }
+
+      //On click on the SVG
+      document.getElementById("Alo").addEventListener("click", Rage);
+
+      function Rage() {
+        //Second state
+        if (count == 0) {
+          Peau.classList.remove("st11");
+          Peau.classList.add("Rougit");
+        }
+        //Third state
+        if (count == 1) {
+          Peau.classList.add("Rougit_2");
+        }
+
+        //Fourth state
+        if (count == 2) {
+          Peau.classList.add("Rougit_3");
+          Nez.classList.remove("st3");
+          Nez.classList.add("Rougit_3_nez");
+          Bouche.classList.remove("st3");
+          Bouche.classList.add("Rougit_3_nez");
+          Alo.classList.add("Shake");
+          Cheveux.classList.remove("st10");
+          Cheveux.classList.add("Rougit_3_cheveux");
+          Sourcil_d.classList.remove("st8");
+          Sourcil_d.classList.add("Rougit_3_nez");
+          Sourcil_g.classList.remove("st8");
+          Sourcil_g.classList.add("Rougit_3_nez");
+        }
+
+        //Reset the SVG to his first state
+        if (count == 3) {
+          count = -1;
+          Peau.classList.add("st11");
+          Peau.classList.remove("Rougit_3");
+          Peau.classList.remove("Rougit_2");
+          Nez.classList.add("st3");
+          Nez.classList.remove("Rougit_3_nez");
+          Bouche.classList.add("st3");
+          Bouche.classList.remove("Rougit_3_nez");
+          Alo.classList.remove("Shake");
+          Cheveux.classList.add("st10");
+          Cheveux.classList.remove("Rougit_3_cheveux");
+          Sourcil_d.classList.add("st8");
+          Sourcil_d.classList.remove("Rougit_3_nez");
+          Sourcil_g.classList.add("st8");
+          Sourcil_g.classList.remove("Rougit_3_nez");
+        }
+
+        count++;
+      }
+    </script>
+  </body>
+</html>

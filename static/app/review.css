@@ -1,0 +1,49 @@
+a{
+    color:rgb(255, 255, 255);
+}
+a:hover{
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+}
+.container{
+    background-color: rgba(255, 255, 255, 0.313);
+    border-radius: 20px 20px 20px 0px;
+}
+
+
+.heading{
+    padding-top: 20px;
+    margin-top: 20px;
+    text-align: center;
+    color: rgb(0, 81, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.heading_sub:hover{
+    color:rgb(255, 0, 0);
+    background-color: rgb(63, 63, 63);
+}
+
+.card-link-a{
+    border:1px;
+    background: rgba(0,80,255,1) 100%;
+    padding:5px 10px;
+    color: white;
+}
+.card-link-b{
+    border:1px;
+    background: rgb(255, 0, 0) 100%;
+    padding: 5px 10px;
+    color: white;
+}
+.card-link-a:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.285); 
+    background: rgb(171,182,241);
+    background: linear-gradient(90deg, rgba(171,182,241,1) 0%, rgba(9,85,253,1) 12%, rgba(9,85,253,1) 93%, rgba(101,149,255,1) 100%);
+}
+.card-link-b:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.285); 
+    background: rgb(241, 171, 171);
+    background: linear-gradient(90deg, rgb(241, 171, 171) 0%, rgb(253, 9, 9) 12%, rgb(253, 9, 9) 93%, rgb(255, 101, 101) 100%);
+}
